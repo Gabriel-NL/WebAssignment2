@@ -56,9 +56,9 @@ public class PlayerShipController : MonoBehaviour
 
         // Rotate left and right using A and D
         if (Input.GetKey(KeyCode.A))
-            transform.Rotate(Vector3.up * rotationSpeed * Time.deltaTime);
-        if (Input.GetKey(KeyCode.D))
             transform.Rotate(-Vector3.up * rotationSpeed * Time.deltaTime);
+        if (Input.GetKey(KeyCode.D))
+            transform.Rotate(Vector3.up * rotationSpeed * Time.deltaTime);
 
         // Apply movement along the X and Z-axis
         transform.position += movementDirection * currentSpeed * Time.deltaTime;

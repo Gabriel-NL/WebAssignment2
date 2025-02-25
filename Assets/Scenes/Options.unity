@@ -965,20 +965,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54435ce11beb24e48a56d3e3bee1f51b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volumeLevel: 0.5
+  volume_level_value: 5
   volume_Level_indicator_prefab: {fileID: 4959693983494173888, guid: 713afadb8af7efa42aa3e73dc582025c, type: 3}
   volume_level_container: {fileID: 1115201756}
-  volume_positions:
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
+  debug: 0
 --- !u!4 &866448409
 Transform:
   m_ObjectHideFlags: 0
@@ -1051,7 +1041,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Increase volume
+  m_text: Music volume
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1598,7 +1588,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2072356462}
   m_Layer: 0
-  m_Name: VolumeHandler
+  m_Name: MusicVolumeHandler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -10,6 +10,8 @@ public class OptionsHandler : MonoBehaviour
     private const int maxValue = 10;
     private int range_count = (maxValue - minValue) + 1;
     [Range(minValue, maxValue)] public int volume_level_value = 5;
+    [Header("Set the playerprefsKey")]
+    public string player_prefs_key;
     
     [Header("Add volume prefab here")]
     public GameObject volume_Level_indicator_prefab;
@@ -36,7 +38,7 @@ public class OptionsHandler : MonoBehaviour
             Debug.LogWarning("Prefab does not have UnityEngine.UI.Image component");
             return;
         }
-        volume_level_value = PlayerPrefs.GetInt(Constants.volume_level, 5);
+        volume_level_value = PlayerPrefs.GetInt(player_prefs_key, 5);
         PopulateVolumeIndicators();
         ChangeViewAccordingToVolume_level_value();
 
@@ -44,7 +46,7 @@ public class OptionsHandler : MonoBehaviour
 
     public void IncreaseVolume()
     {
-        int temp_volume_level = PlayerPrefs.GetInt(Constants.volume_level, 5);
+        int temp_volume_level = PlayerPrefs.GetInt(player_prefs_key, 5);
         if (temp_volume_level >=10)
         {
             Debugging("Max Volume reached");
@@ -56,7 +58,7 @@ public class OptionsHandler : MonoBehaviour
 
     public void DecreaseVolume()
     {
-        int temp_volume_level = PlayerPrefs.GetInt(Constants.volume_level, 5);
+        int temp_volume_level = PlayerPrefs.GetInt(player_prefs_key, 5);
         if (temp_volume_level <= 0)
         {
             Debugging("Min Volume reached");
@@ -70,7 +72,7 @@ public class OptionsHandler : MonoBehaviour
     private void SetVolume(int value)
     {
         volume_level_value =value;
-        PlayerPrefs.SetInt(Constants.volume_level, value);
+        PlayerPrefs.SetInt(player_prefs_key, value);
         ChangeViewAccordingToVolume_level_value();
     }
 

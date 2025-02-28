@@ -2,8 +2,6 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using System.Collections;
-using System.Globalization;
-using System.Collections.Generic;
 
 public class KeyBindController : MonoBehaviour
 {
@@ -14,10 +12,8 @@ public class KeyBindController : MonoBehaviour
 
     public KeyCode assignedKey = KeyCode.None; // Stored keybind
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-       
         assignedKey = LoadKeybind(current_function,assignedKey);
         UpdateButtonText(assignedKey.ToString());
         controller=FindFirstObjectByType<KeyMapController>();
@@ -29,7 +25,6 @@ public class KeyBindController : MonoBehaviour
         Debug.Log($"Press any key to do {current_function}");
         StartCoroutine(WaitForKeyPress());
     }
-    
 
     IEnumerator WaitForKeyPress()
     {
@@ -44,19 +39,12 @@ public class KeyBindController : MonoBehaviour
             if (Input.GetKeyDown(key))
             {
                 assignedKey = key;
-                SaveKeybind();
+                controller.SaveKeybind(current_function, assignedKey.ToString());
                 break;
             }
         }
 
         UpdateButtonText(assignedKey.ToString());
-    }
-
-    void SaveKeybind()
-    {
-        PlayerPrefs.SetString(current_function, assignedKey.ToString());
-        PlayerPrefs.Save();
-        controller.VerifyKeyRepetitions();
     }
 
     void UpdateButtonText(string txt)
@@ -66,6 +54,7 @@ public class KeyBindController : MonoBehaviour
             button_text.text = txt;
         }
     }
+
     public KeyCode LoadKeybind(string function,KeyCode bind)
     {
          KeyCode collectedKeyBind;
@@ -92,7 +81,7 @@ public class KeyBindController : MonoBehaviour
     {
         if (assignedKey != KeyCode.None && Input.GetKeyDown(assignedKey))
         {
-            Debug.Log($"Key {assignedKey} pressed!");
+            Debug.Log($"Key {assignedKey} pressed, executing {current_function} function");
         }
     }
 

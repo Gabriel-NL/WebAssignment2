@@ -5,11 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - KeyBind
-<<<<<<< Updated upstream
-=======
   - MotherShip
-  - Enemy
->>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX

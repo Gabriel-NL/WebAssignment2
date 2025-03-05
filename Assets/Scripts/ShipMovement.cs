@@ -21,6 +21,9 @@ public class ShipMovement : MonoBehaviour
     private Vector3 rotation = new Vector3(0, 0, 0);
     private bool accelerate = false, brakes_activated = false;
 
+    private bool isPaused = false;
+    [SerializeField] GameObject pauseMenu;
+
     public bool isCoroutineRunning = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -60,6 +63,8 @@ public class ShipMovement : MonoBehaviour
 
         playerInput.actions["deccelerate"].started += _ => brakes_activated = true;
         playerInput.actions["deccelerate"].canceled += _ => brakes_activated = false;
+
+        playerInput.actions["pause_unpause"].performed += PauseUnpause;
     }
 
     private void ChangeRotation(int[] directions)
@@ -93,7 +98,20 @@ public class ShipMovement : MonoBehaviour
         // Apply movement using the Rigidbody (move forward based on the current speed)
         player_ship_rigidbody.linearVelocity = transform.forward * currentSpeed;
     }
-
+    private void PauseUnpause(InputAction.CallbackContext context)
+    {
+        if (isPaused)
+        {
+            pauseMenu.SetActive(false);
+            Time.timeScale = 1;
+        }
+        else
+        {
+            pauseMenu.SetActive(true);
+            Time.timeScale = 0;
+        }
+        isPaused = !isPaused;
+    }
 
     private IEnumerator Stabilizer()
     {

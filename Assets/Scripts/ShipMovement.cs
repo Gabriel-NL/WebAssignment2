@@ -24,6 +24,9 @@ public class ShipMovement : MonoBehaviour
     private bool isPaused = false;
     [SerializeField] GameObject pauseMenu;
 
+    private bool invOpen = false;
+    [SerializeField] GameObject inventoryUI;
+
     public bool isCoroutineRunning = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -65,6 +68,7 @@ public class ShipMovement : MonoBehaviour
         playerInput.actions["deccelerate"].canceled += _ => brakes_activated = false;
 
         playerInput.actions["pause_unpause"].performed += PauseUnpause;
+        playerInput.actions["inventory"].performed += inventoryOpenClose;
     }
 
     private void ChangeRotation(int[] directions)
@@ -109,8 +113,26 @@ public class ShipMovement : MonoBehaviour
         {
             pauseMenu.SetActive(true);
             Time.timeScale = 0;
+            if (invOpen)
+            {
+                inventoryUI.SetActive(false);
+                invOpen = false;
+            }
         }
         isPaused = !isPaused;
+    }
+    private void inventoryOpenClose(InputAction.CallbackContext context)
+    {
+        if (!invOpen && !isPaused)
+        {
+            inventoryUI.SetActive(true);
+            invOpen = true;
+        }
+        else
+        {
+            inventoryUI.SetActive(false);
+            invOpen = false;
+        }
     }
 
     private IEnumerator Stabilizer()

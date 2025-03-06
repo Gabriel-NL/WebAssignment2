@@ -1066,6 +1066,33 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "inventory",
+                    "type": "Button",
+                    "id": "d554393f-59d3-4f45-8c50-d8853864c3a0",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "capture",
+                    "type": "Button",
+                    "id": "08a26b74-9bc3-4eab-8840-6b870903728c",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "consumable",
+                    "type": "Button",
+                    "id": "a5146d20-0d71-4edc-a3c8-79d3e49fe693",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -1275,6 +1302,39 @@
                     "processors": "",
                     "groups": "",
                     "action": "pause_unpause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "209bd3e4-45bd-4e84-b3c0-f903d2cf942a",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "inventory",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7e3004d4-c690-490b-bb15-8c3a8018543b",
+                    "path": "<Keyboard>/c",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "capture",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d35c595e-2ef9-408d-aaad-283cefc25b0d",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "consumable",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

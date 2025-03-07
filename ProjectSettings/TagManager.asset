@@ -7,6 +7,7 @@ TagManager:
   - KeyBind
   - MotherShip
   - ShipNose
+  - Enemy
   layers:
   - Default
   - TransparentFX

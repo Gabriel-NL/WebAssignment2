@@ -1859,7 +1859,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3192133868536510367, guid: c099b92fd4beae8419967cae647ffb77, type: 3}
       propertyPath: m_IsKinematic
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3867385164394236202, guid: c099b92fd4beae8419967cae647ffb77, type: 3}
       propertyPath: m_LocalPosition.x

@@ -9,6 +9,7 @@ TagManager:
   - ShipNose
   - Enemy
   - Projectile
+  - Bullet
   layers:
   - Default
   - TransparentFX

@@ -769,6 +769,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ship_v3_unjoined (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6954364964938006913, guid: c099b92fd4beae8419967cae647ffb77, type: 3}
+      propertyPath: playerInput
+      value: 
+      objectReference: {fileID: 2116667846}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

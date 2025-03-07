@@ -6,6 +6,7 @@ TagManager:
   tags:
   - KeyBind
   - MotherShip
+  - ShipNose
   layers:
   - Default
   - TransparentFX

@@ -25,6 +25,7 @@ public class ShipMovement : MonoBehaviour
     [SerializeField] GameObject pauseMenu;
 
     private bool invOpen = false;
+    private Dismantle dismantle_script;
     [SerializeField] GameObject inventoryUI;
 
     public bool isCoroutineRunning = false;
@@ -32,6 +33,7 @@ public class ShipMovement : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        dismantle_script=FindFirstObjectByType<Dismantle>();
         player_ship_rigidbody = GetComponent<Rigidbody>();
         InitializeRotationHandlers();
     }
@@ -73,7 +75,6 @@ public class ShipMovement : MonoBehaviour
 
     private void ChangeRotation(int[] directions)
     {
-
         rotation.x = directions[0] + directions[1];
         rotation.y = directions[2] + directions[3];
         // Apply rotation to the Rigidbody (use MoveRotation for Rigidbody)
@@ -102,6 +103,7 @@ public class ShipMovement : MonoBehaviour
         // Apply movement using the Rigidbody (move forward based on the current speed)
         player_ship_rigidbody.linearVelocity = transform.forward * currentSpeed;
     }
+
     private void PauseUnpause(InputAction.CallbackContext context)
     {
         if (isPaused)
@@ -121,6 +123,7 @@ public class ShipMovement : MonoBehaviour
         }
         isPaused = !isPaused;
     }
+
     private void inventoryOpenClose(InputAction.CallbackContext context)
     {
         if (!invOpen && !isPaused)
@@ -161,20 +164,20 @@ public class ShipMovement : MonoBehaviour
         isCoroutineRunning = false;
     }
 
-
     void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.CompareTag("MotherShip"))
         {
             currentSpeed = 0;
         }
+
+        foreach (ContactPoint contact in collision.contacts)
+        {
+            if (contact.thisCollider.CompareTag("ShipNose"))
+            {
+                //Debug.Log("Nose took damage!");
+                dismantle_script.ExplodeAndDismantle();
+            }
+        }
     }
-
-
-
-
-
-
-
-
 }

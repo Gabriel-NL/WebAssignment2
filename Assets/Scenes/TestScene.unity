@@ -574,6 +574,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5660087325073470267, guid: c5aab892d7868474a8f1b3383a30dd05, type: 3}
   m_PrefabInstance: {fileID: 1151639878663819951}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1576599236 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1414917465025321442, guid: c5aab892d7868474a8f1b3383a30dd05, type: 3}
+  m_PrefabInstance: {fileID: 1151639878663819951}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1735137902
 GameObject:
   m_ObjectHideFlags: 0
@@ -856,6 +861,8 @@ GameObject:
   - component: {fileID: 2067738809}
   - component: {fileID: 2067738808}
   - component: {fileID: 2067738807}
+  - component: {fileID: 2067738810}
+  - component: {fileID: 2067738811}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -994,12 +1001,20 @@ MonoBehaviour:
     m_ActionName: SpaceDefender/turn_ship_up4
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: f944e647-c478-4003-bf92-1486c6e5c30f
-    m_ActionName: 'Player/Pause[/Keyboard/escape]'
-  - m_PersistentCalls:
-      m_Calls: []
     m_ActionId: 0e1ddff9-da02-4686-8045-17ce26249eb0
     m_ActionName: 'SpaceDefender/pause_unpause[/Keyboard/escape]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d554393f-59d3-4f45-8c50-d8853864c3a0
+    m_ActionName: 'SpaceDefender/inventory[/Keyboard/e]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 08a26b74-9bc3-4eab-8840-6b870903728c
+    m_ActionName: 'SpaceDefender/capture[/Keyboard/c]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a5146d20-0d71-4edc-a3c8-79d3e49fe693
+    m_ActionName: 'SpaceDefender/consumable[/Keyboard/q]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: SpaceDefender
@@ -1033,6 +1048,32 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2067738810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2067738806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9faddb7789cb7f449e33b738dee6466, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveSelect: {fileID: 1576599236}
+  listingSaves: 0
+--- !u!114 &2067738811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2067738806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9917465516bc804d8058cd7e6b9f343, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1151639878663819951
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1041,6 +1082,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1147471502}
     m_Modifications:
+    - target: {fileID: 3926321215746292979, guid: c5aab892d7868474a8f1b3383a30dd05, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2067738810}
+    - target: {fileID: 4553068198013259126, guid: c5aab892d7868474a8f1b3383a30dd05, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2067738810}
+    - target: {fileID: 4553068198013259126, guid: c5aab892d7868474a8f1b3383a30dd05, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 2067738811}
     - target: {fileID: 5660087325073470267, guid: c5aab892d7868474a8f1b3383a30dd05, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
